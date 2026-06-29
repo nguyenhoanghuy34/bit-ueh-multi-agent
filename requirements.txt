@@ -1,0 +1,12 @@
+langchain
+langchain-core
+langchain-openai
+langgraph
+crewai
+google-adk
+
+fastapi
+uvicorn
+
+python-dotenv
+pydantic
