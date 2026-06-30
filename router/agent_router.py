@@ -1,33 +1,29 @@
-from router.prompts import ROUTER_PROMPT
+from openai import OpenAI
 
+from router.prompts import ROUTER_PROMPT
 
 
 class AgentRouter:
 
+    def __init__(self):
+        self.client = OpenAI()
 
     def route(
         self,
         message
     ):
+        response = self.client.responses.create(
+            model="gpt-4.1-mini",
+            input=[
+                {
+                    "role": "system",
+                    "content": ROUTER_PROMPT
+                },
+                {
+                    "role": "user",
+                    "content": message
+                }
+            ]
+        )
 
-
-        text = message.lower()
-
-
-        if (
-            "crawl" in text
-            or "data" in text
-        ):
-
-            return "crawl_data"
-
-
-        if (
-            "notification" in text
-            or "thông báo" in text
-        ):
-
-            return "notification"
-
-
-        return "crawl_data"
+        return response.output_text.strip()
