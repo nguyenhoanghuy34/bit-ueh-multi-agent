@@ -1,7 +1,5 @@
 
 class BaseAgent:
-
-
     def __init__(
         self,
         name,
@@ -10,13 +8,9 @@ class BaseAgent:
 
         self.name=name
         self.prompt=prompt
-
-
-
     def run(
         self,
         input_text,
         context
     ):
-
         raise NotImplementedError
