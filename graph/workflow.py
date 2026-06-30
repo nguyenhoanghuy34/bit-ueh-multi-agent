@@ -63,11 +63,9 @@ graph.add_conditional_edges(
     "router",
     lambda x:x["current_agent"],
     {
-        "crawl_data":
-        "crawl_data",
+        "crawl_data": "crawl_data",
 
-        "notification":
-        "notification"
+        "notification": "notification"
     }
 )
 
